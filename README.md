@@ -17,17 +17,21 @@ Public health officials often face "reporting noise" and extreme volatility when
 * To move beyond static counts by analyzing the **velocity of cases** and the specific **lag in fatalities**.
 * To provide actionable insights—such as 30-day forecasts and policy simulations—to inform the timing and duration of localized interventions.
 
-Dataset Features & Schema
-Feature,Description
-UID,Unique numeric identifier for each geographic row.
-"iso2, iso3, code3",Standardized 2-character and 3-character ISO country codes.
-FIPS,Federal Information Processing Standard code used to identify US counties.
-Admin2,The specific County-level administrative unit.
-Province_State,The State or Province of the reported data.
-Country_Region,"The name of the Country or Region (e.g., US)."
-"Lat, Long_",Geographic coordinates (Latitude and Longitude) for mapping.
-Combined_Key,"A unique string identifier combining the Admin2, State, and Country names."
-Date Columns,Daily time-series columns containing the raw counts of confirmed cases or deaths.
+### 📊 Dataset Features & Schema
+The model utilizes the Johns Hopkins University (JHU) / CDC time-series dataset. Below are the key features used for spatial and temporal alignment:
+
+| Feature | Description |
+| :--- | :--- |
+| **UID** | Unique numeric identifier for each geographic row. |
+| **iso2, iso3, code3** | Standardized 2-character and 3-character ISO country codes. |
+| **FIPS** | Federal Information Processing Standard code used to identify US counties. |
+| **Admin2** | The specific County-level administrative unit (County name). |
+| **Province_State** | The State or Province of the reported data. |
+| **Country_Region** | The name of the Country or Region (e.g., US). |
+| **Latitude, Longitude** | Geographic coordinates used for spatial mapping. |
+| **Combined_Key** | A unique string identifier combining Admin2, State, and Country. |
+| **Time Series Data** | Daily columns containing raw cumulative counts of confirmed cases or deaths. |
+
 
 ## ⚙️ Project Workflow
 1.  **Data Preprocessing:** Cleaning raw CDC/JHU data, handling missing values (NaN to 0), and clipping outliers.
